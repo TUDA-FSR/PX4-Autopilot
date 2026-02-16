@@ -1,0 +1,64 @@
+#!/bin/sh
+#
+# @name Generic Standard Plane
+#
+# @type Standard Plane
+# @class Plane
+#
+# @board bitcraze_crazyflie exclude
+#
+
+. ${R}etc/init.d/rc.fw_defaults
+
+param set-default CA_ROTOR_COUNT 1
+param set-default CA_ROTOR0_PX 0.3
+param set-default CA_SV_CS_COUNT 4
+param set-default CA_SV_CS0_TYPE 1
+param set-default CA_SV_CS0_TRQ_R -0.5
+param set-default CA_SV_CS1_TRQ_R 0.5
+param set-default CA_SV_CS1_TYPE 2
+param set-default CA_SV_CS2_TRQ_P 1
+param set-default CA_SV_CS2_TYPE 3
+param set-default CA_SV_CS3_TRQ_Y 1
+param set-default CA_SV_CS3_TYPE 4
+
+# Regelparameter
+# zurzeit Standard Regelparameter
+
+# Battery
+
+param set-default BAT1_N_CELLS 4
+param set-default BAT1_V_CHARGED 4.2
+param set-default BAT1_V_EMPTY 3.6
+
+# Airframe
+
+param set-default CA_AIRFRAME 1
+param set-default CA_ROTOR0_PX 0.3
+
+# Flugmodies
+
+param set-default COM_FLTMODE1 2
+param set-default COM_FLTMODE2 8
+param set-default COM_FLTMODE3 6
+param set-default COM_FLTMODE4 3
+param set-default COM_FLTMODE5 10
+param set-default COM_FLTMODE6 0
+
+# Dshot datalink
+
+param set-default DSHOT_TEL_CFG 202
+param set-default PWM_AUX_TIM0 -3
+
+# RPM Sensor
+
+param set-default SENS_EN_PCF8583 1
+param set-default PCF8583_MAGNET 14
+param set-default PCF8583_POOL 50000
+param set-default PCF8583_RESET 25000
+
+# FW launch detection (Wurfstart)
+
+param set-default FW_LAUN_AC_THLD 10
+param set-default FW_LAUN_DETCN_ON 1
+param set-default FW_LAUN_MOT_DEL 0.3
