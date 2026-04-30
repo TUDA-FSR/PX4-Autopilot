@@ -11,6 +11,12 @@ This fork adds airframes and board configurations required for operating the UAS
 - [fsr.px4board](boards/px4/fmu-v5x/fsr.px4board)
 
   Default board config for FSR.
+  
+### `boards/cubepilot/cubeorangeplus`
+
+- [crsf.px4board](boards/cubepilot/cubeorangeplus/crsf.px4board)
+
+  Crsf board config.
 
 ## Additional Airframes
 
