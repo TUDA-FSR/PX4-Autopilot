@@ -155,7 +155,11 @@ void RtlDirectMissionLand::setActiveMissionItems()
 
 		new_work_item_type = WorkItemType::WORK_ITEM_TYPE_CLIMB;
 
-	} else if (_vehicle_status_sub.get().vehicle_type == vehicle_status_s::VEHICLE_TYPE_ROTARY_WING &&
+	}
+	// Disabled temporarily: the transition-to-fixed-wing path uses mission data
+	// before it is initialized correctly in this execution path.
+
+	/*else if (_vehicle_status_sub.get().vehicle_type == vehicle_status_s::VEHICLE_TYPE_ROTARY_WING &&
 		   _vehicle_status_sub.get().is_vtol &&
 		   !_land_detected_sub.get().landed && _work_item_type == WorkItemType::WORK_ITEM_TYPE_DEFAULT) {
 		// Transition to fixed wing if necessary.
@@ -167,7 +171,8 @@ void RtlDirectMissionLand::setActiveMissionItems()
 
 		new_work_item_type = WorkItemType::WORK_ITEM_TYPE_TRANSITION_AFTER_TAKEOFF;
 
-	} else if (item_contains_position(_mission_item)) {
+	} */
+	 else if (item_contains_position(_mission_item)) {
 
 		static constexpr size_t max_num_next_items{1u};
 		int32_t next_mission_items_index[max_num_next_items];
