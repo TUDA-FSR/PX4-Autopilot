@@ -324,8 +324,26 @@ void RTL::setRtlTypeAndDestination()
 
 		switch (destination_type) {
 		case DestinationType::DESTINATION_TYPE_MISSION_LAND:
-			_rtl_type = RtlType::RTL_DIRECT_MISSION_LAND;
-			_rtl_mission_type_handle->setRtlAlt(rtl_alt);
+			// Fix: VTOL in MC-State goes directly into direct RTL
+			// (instead of flying the FW landing pattern as a MC)
+			// VTOL in FW and pure MC keeping the intended RTL_DIRECT_MISSION_LAND
+			if (_vehicle_status_sub.get().is_vtol
+				&& _vehicle_status_sub.get().vehicle_type
+				== vehicle_status_s::VEHICLE_TYPE_ROTARY_WING) {
+
+				loiter_point_s landing_loiter;
+				landing_loiter.lat = rtl_position.lat;
+				landing_loiter.lon = rtl_position.lon;
+				landing_loiter.height_m = NAN;
+
+				_rtl_type = RtlType::RTL_DIRECT;
+				_rtl_direct.setRtlAlt(rtl_alt);
+				_rtl_direct.setRtlPosition(rtl_position, landing_loiter);
+
+			} else {
+				_rtl_type = RtlType::RTL_DIRECT_MISSION_LAND;
+				_rtl_mission_type_handle->setRtlAlt(rtl_alt);
+			}
 			break;
 
 		case DestinationType::DESTINATION_TYPE_SAFE_POINT: // Fallthrough
