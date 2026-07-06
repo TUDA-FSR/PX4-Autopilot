@@ -27,3 +27,5 @@ This fork adds airframes and board configurations required for operating the UAS
 - [13001_tuda_fsr_scidragon](ROMFS/px4fmu_common/init.d/airframes/13001_tuda_fsr_scidragon)
 
 ### `ROMFS/px4fmu_common/init.d-posix/airframes` (Simulation)
+
+- [4101_tuda_fsr_sciwing](ROMFS/px4fmu_common/init.d-posix/airframes/4101_tuda_fsr_sciwing)
