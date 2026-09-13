@@ -1,0 +1,37 @@
+#!/bin/sh
+#
+# @name TUDa FSR SciWing
+#
+# @type Standard Fixed Wing
+# @class FW
+
+# @maintainer Benedikt Schorr <benedikt_martin.schorr@stud.tu-darmstadt.de>
+
+
+. ${R}etc/init.d/rc.fw_defaults
+
+param set-default CA_AIRFRAME 1
+
+
+param set-default BAT1_N_CELLS 4
+param set-default CA_ROTOR_COUNT 1
+param set-default CA_ROTOR0_PX 0.3
+param set-default CA_SV_CS_COUNT 3
+param set-default CA_SV_CS0_TYPE 1
+param set-default CA_SV_CS0_TRQ_R -0.5
+param set-default CA_SV_CS1_TYPE 2
+param set-default CA_SV_CS1_TRQ_R 0.5
+param set-default CA_SV_CS2_TYPE 3
+param set-default CA_SV_CS2_TRQ_P 1
+
+param set-default COM_FLTMODE1 2
+param set-default COM_FLTMODE2 6
+param set-default COM_FLTMODE3 5
+param set-default COM_FLTMODE4 8
+param set-default COM_FLTMODE5 3
+param set-default COM_FLTMODE6 7
+
+param set-default FW_AIRSPD_MAX 25
+param set-default FW_AIRSPD_MIN 12
+param set-default FW_AIRSPD_STALL 10
+param set-default FW_AIRSPD_TRIM 16
